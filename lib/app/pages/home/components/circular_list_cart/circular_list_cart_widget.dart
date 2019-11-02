@@ -8,16 +8,32 @@ class CircularListCartWidget extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Expanded(
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                circularItem(context, 'assets/dataI/charizard.png'),
-                circularItem(context, 'assets/dataI/h1z11.png'),
-                circularItem(context, 'assets/dataI/one.png'),
-              ],
+            child: Container(
+              padding: EdgeInsets.only(left: 20.0),
+              child: Text(
+                "Carrinho",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Orbitron',
+                  letterSpacing: 2,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
+          // Expanded(
+          //   child: ListView(
+          //     scrollDirection: Axis.horizontal,
+          //     children: <Widget>[
+          //       circularItem(context, 'assets/dataI/charizard.png'),
+          //       circularItem(context, 'assets/dataI/h1z11.png'),
+          //       circularItem(context, 'assets/dataI/one.png'),
+          //     ],
+          //   ),
+          // ),
           Container(
+            padding: EdgeInsets.only(bottom: 3),
             width: 40,
             height: 40,
             child: CircleAvatar(
@@ -37,17 +53,17 @@ class CircularListCartWidget extends StatelessWidget {
     );
   }
 
-  Widget circularItem(BuildContext context, String image) {
-    return Container(
-      margin: EdgeInsets.only(left: 5),
-      height: 40,
-      width: 40,
-      child: CircleAvatar(
-        backgroundColor: Theme.of(context).primaryColorDark,
-        child: ClipOval(
-          child: Image.asset(image),
-        ),
-      ),
-    );
-  }
+  // Widget circularItem(BuildContext context, String image) {
+  //   return Container(
+  //     margin: EdgeInsets.only(left: 5),
+  //     height: 40,
+  //     width: 40,
+  //     child: CircleAvatar(
+  //       backgroundColor: Theme.of(context).primaryColorDark,
+  //       child: ClipOval(
+  //         child: Image.asset(image),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
