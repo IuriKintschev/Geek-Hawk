@@ -32,7 +32,13 @@ class _HomeMainPageState extends State<HomeMainPage> {
           child: Column(
             children: <Widget>[
               AppBarWidget(), // AppBar geral
-              CardPrincipalWidget(), // card princifal
+              CardPrincipalWidget(
+                image: produto[0].imagens[0],
+                cor: Color(int.parse(produto[0].cor)),
+                price: produto[0].price,
+                textoPri: produto[0].nome,
+                textoSec: produto[0].descricao,
+              ), // card princifal
               ContentCategoryWidget(
                 images: images, //! retirar depois
                 imageH: 120.0,
