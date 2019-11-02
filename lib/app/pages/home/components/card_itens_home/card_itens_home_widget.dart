@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geek_hawk/app/pages/home/product_interna/product_interna_widget.dart';
 
 class CardItensHomeWidget extends StatelessWidget {
   final String image;
@@ -12,72 +14,91 @@ class CardItensHomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            Container(
-              width: 150,
-              height: 150,
-              child: Image(
-                image: AssetImage(image),
-              ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+            builder: (context) => ProductInternaWidget(
+              image: image,
+              cor: cor,
+              price: price,
+              textoPri: textoPri,
+              textoSec: textoSec,
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+        );
+      },
+      child: Card(
+        elevation: 3,
+        margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        child: Hero(
+          tag: image,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
               children: <Widget>[
                 Container(
-                  child: Text(
-                    textoPri,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Orbitron',
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  child: Text(
-                    textoSec,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Ubuntu',
-                      color: Colors.black54,
-                    ),
+                  width: 150,
+                  height: 150,
+                  child: Image(
+                    image: AssetImage(image),
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'R\$${price.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Orbitron',
-                        color: Colors.deepPurple,
+                    Container(
+                      child: Text(
+                        textoPri,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Orbitron',
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Container(
+                      child: Text(
+                        textoSec,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Ubuntu',
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'R\$${price.toStringAsFixed(2)}',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Orbitron',
+                            color: Colors.deepPurple,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

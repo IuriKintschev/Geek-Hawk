@@ -8,7 +8,7 @@ import 'package:geek_hawk/app/pages/home/home_page.dart';
 class HomeModule extends ModuleWidget {
   @override
   List<Bloc> get blocs => [
-        Bloc((i) => ProductInternaBloc()), // inter na de produtos
+        Bloc((i) => ProductInternaBloc()), // pagina interna de produto
         Bloc((i) => HomeMainBloc()), // Bloc pagina maain
         Bloc((i) => HomeBloc()), // Bloc home geral
       ];
