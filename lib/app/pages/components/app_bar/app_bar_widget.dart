@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geek_hawk/app/pages/perfil/perfil_page.dart';
 
 class AppBarWidget extends StatelessWidget {
   @override
@@ -51,17 +53,32 @@ class AppBarWidget extends StatelessWidget {
               SizedBox(
                 width: 15,
               ),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    alignment: Alignment.center,
-                    image: AssetImage(
-                      "assets/dataI/iuri.jpeg",
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => PerfilPage(
+                        image: "assets/dataI/iuri.jpeg",
+                      ),
+                    ),
+                  );
+                },
+                child: Hero(
+                  tag: "assets/dataI/iuri.jpeg",
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        alignment: Alignment.center,
+                        image: AssetImage(
+                          "assets/dataI/iuri.jpeg",
+                        ),
+                      ),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
-                  borderRadius: BorderRadius.circular(25),
                 ),
               ),
             ],
